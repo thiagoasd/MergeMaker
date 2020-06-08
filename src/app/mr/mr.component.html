@@ -1,215 +1,240 @@
-<h1> Merge Request Maker</h1>
-
-
 <div class="container">
-    <form [formGroup]="MergeForm">
-
-        <div class="row">
+  <div class="card-heading">
+    <h3 class="title">Merge Request</h3>
+  </div>
+  <div class="card">
+    <br>
+    <div class="alinhar">
+      <form [formGroup]="MergeForm" class="form">
+        <div class="card">
+          <div class="card-header">
             <h2>Issue</h2>
+          </div>
+          <div class="card-body">
+            <div class="form-group col-2">
+              <label class="labels">
+                Número
+              </label>
+              <input class="form-control" formControlName="Issue" placeholder="Ex. 3" type="number" min="1">
+            </div>
+          </div>
         </div>
-        <div class="row">
-            <label>
-                Numero
-                <input formControlName="Issue" placeholder="Ex. 3" type="number" min="1">
-            </label>
-        </div>
-
-
-        <div class="row">
+        <hr class="hr">
+        <div class="card">
+          <div class="card-header">
             <h2>Siglas</h2>
-        </div>
-
-        <div formArrayName="Siglas" *ngFor="let item of Siglas.controls; let i = index;">
-            <div [formGroupName]="i">
+          </div>
+          <div class="card-body">
+            <div formArrayName="Siglas" *ngFor="let item of Siglas.controls; let i = index;">
+              <div [formGroupName]="i">
                 <div class="row">
-                    <h4>Sigla {{i + 1}}</h4>
+                  <h4 class="subtitles">Sigla {{i + 1}}</h4>
                 </div>
                 <div class="row align-items-end">
-                    <div class="form-group col-2">
-                        <label for="{{'usuario' + i}}">
-                            Usuario
-                        </label>
-                        <input class="form-control" aria-label="Usuario" id="{{'usuario' + i}}"
-                            formControlName="usuario" placeholder="Ex. AH1ASDASD">
+                  <div class="form-group col-3">
+                    <label class="labels" for="{{'usuario' + i}}">
+                      Usuário
+                    </label>
+                    <input class="form-control" aria-label="Usuario" id="{{'usuario' + i}}"
+                      formControlName="usuario" placeholder="Ex. AH1ASDASD">
+                  </div>
+                  <div class="form-group col-3">
+                    <label class="labels" for="{{'senha' + i}}">
+                      Senha
+                    </label>
+                    <input class="form-control" aria-label="Senha" id="{{'senha' + i}}" formControlName="senha"
+                      placeholder="Ex. Santander17">
+                  </div>
+                  <div class="form-group col-4">
+                    <label class="labels" for="{{'obs' + i}}">
+                      Observação
+                    </label>
+                    <input class="form-control" aria-label="Senha" id="{{'obs' + i}}" formControlName="observacao"
+                      placeholder="Ex. Possui autorização">
+                  </div>
+                  <div class="col-2" *ngIf="Siglas.length == i+1">
+                    <div>
+                      <button class="btn btn-primary" style="margin-bottom: 1rem" (click)="addSigla()"
+                        id="botaosigla">+ sigla</button>
                     </div>
-                    <div class="form-group col-2">
-                        <label for="{{'senha' + i}}">
-                            Senha
-                        </label>
-                        <input class="form-control" aria-label="Senha" id="{{'senha' + i}}" formControlName="senha"
-                            placeholder="Ex. Santander17">
-                    </div>
-                    <div class="form-group col-2">
-                        <label for="{{'obs' + i}}">
-                            Obs
-                        </label>
-                        <input class="form-control" aria-label="Senha" id="{{'obs' + i}}" formControlName="observacao"
-                            placeholder="Ex. Possui autorização">
-                    </div>
-                    <div class="col-2" *ngIf="Siglas.length == i+1">
-                        <div>
-                            <button class="btn btn-light" style="margin-bottom: 1rem" (click)="addSigla()"
-                                id="botaosigla">
-                                + sigla
-                            </button>
-                        </div>
-                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-
-        <div class="row">
+        <hr class="hr">
+        <div class="card">
+          <div class="card-header">
             <h2>Massas</h2>
-        </div>
-        <div formArrayName="Massas" *ngFor="let item of Massas.controls; let i = index;">
-            <div [formGroupName]="i">
+          </div>
+          <div class="card-body">
+            <div formArrayName="Massas" class="labels" *ngFor="let item of Massas.controls; let i = index;">
+              <div [formGroupName]="i">
                 <div class="row">
-                    <h4>Massa {{i + 1}}</h4>
+                  <h4 class="subtitles">Massa {{i + 1}}</h4>
                 </div>
                 <div class="row align-items-end">
-                    <div class="form-group col-2">
-                        <label for="{{'cpf' + i}}">
-                            CPF/CNPJ
-                        </label>
-                        <input class="form-control" aria-label="CPF/CNPJ" id="{{'cpf' + i}}" formControlName="cpf"
-                            placeholder="Ex. 0138340433" type="number" min="0">
-                    </div>
-                    <!-- <label>
-                        CPF
-                        <input formControlName="cpf" placeholder="Item name">
-                    </label> -->
-                    <div class="form-group col-2">
-                        <label for="{{'banco' + i}}">
-                            Banco
-                        </label>
-                        <input class="form-control" aria-label="Banco" id="{{'banco' + i}}" formControlName="banco"
-                            placeholder="Ex. 0033" type="number" min="0">
-                    </div>
-                    <!-- <label>
-                        Banco
-                        <input formControlName="banco" placeholder="Item description">
-                    </label> -->
-                    <div class="form-group col-2">
-                        <label for="{{'agencia' + i}}">
-                            Agencia
-                        </label>
-                        <input class="form-control" aria-label="Agencia" id="{{'agencia' + i}}"
-                            formControlName="agencia" placeholder="0001" type="number" min="0">
-                    </div>
-                    <!-- <label>
-                        Agencia
-                        <input formControlName="agencia" placeholder="Item price">
-                    </label> -->
+                  <div class="form-group col-3">
+                    <label for="{{'cpf' + i}}">
+                      CPF/CNPJ
+                    </label>
+                    <input class="form-control" aria-label="CPF/CNPJ" id="{{'cpf' + i}}" formControlName="cpf"
+                      placeholder="Ex. 0138340433" type="number" min="0">
+                  </div>
+                  <!-- <label>
+                    CPF
+                    <input formControlName="cpf" placeholder="Item name">
+                  </label> -->
+                  <div class="form-group col-2">
+                    <label for="{{'banco' + i}}">
+                      Banco
+                    </label>
+                    <input class="form-control" aria-label="Banco" id="{{'banco' + i}}" formControlName="banco"
+                      placeholder="Ex. 0033" type="number" min="0">
+                  </div>
+                  <!-- <label>
+                    Banco
+                    <input formControlName="banco" placeholder="Item description">
+                  </label> -->
+                  <div class="form-group col-2">
+                    <label for="{{'agencia' + i}}">
+                      Agência
+                    </label>
+                    <input class="form-control" aria-label="Agencia" id="{{'agencia' + i}}"
+                      formControlName="agencia" placeholder="Ex. 0001" type="number" min="0">
+                  </div>
+                  <!-- <label>
+                    Agencia
+                    <input formControlName="agencia" placeholder="Item price">
+                  </label> -->
 
-                    <div class="form-group col-2">
-                        <label for="{{'conta' + i}}">
-                            Conta
-                        </label>
-                        <input class="form-control" aria-label="Conta" id="{{'conta' + i}}" formControlName="conta"
-                            placeholder="Ex. 00000000000">
-                    </div>
-                    <!-- <label>
-                        Conta
-                        <input formControlName="conta" placeholder="Item description">
-                    </label> -->
-                    <div class="form-group col-2">
-                        <label for="{{'observacao' + i}}">
-                            Observação
-                        </label>
-                        <input class="form-control" aria-label="Observação" id="{{'observacao' + i}}"
-                            formControlName="observacao" placeholder="Ex. Possui Saldo">
-                    </div>
-                    <!-- <label>
-                        Obs
-                        <input formControlName="observacao" placeholder="Item price">
-                    </label> -->
+                  <div class="form-group col-2">
+                    <label for="{{'conta' + i}}">
+                      Conta
+                    </label>
+                    <input class="form-control" aria-label="Conta" id="{{'conta' + i}}" formControlName="conta"
+                      placeholder="Ex. 00000000000">
+                  </div>
+                  <!-- <label>
+                    Conta
+                    <input formControlName="conta" placeholder="Item description">
+                  </label> -->
+                  <div class="form-group col-3">
+                    <label for="{{'observacao' + i}}">
+                      Observação
+                    </label>
+                    <input class="form-control" aria-label="Observação" id="{{'observacao' + i}}"
+                      formControlName="observacao" placeholder="Ex. Possui Saldo">
+                  </div>
+                  <!-- <label>
+                    Obs
+                    <input formControlName="observacao" placeholder="Item price">
+                  </label> -->
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-
-        <div class="row">
-            <h2>Telas</h2>
-        </div>
-        <div formArrayName="Telas">
-            <div *ngFor="let tela of Telas.controls; let i = index;">
-                <div [formGroupName]="i">
+        <hr class="hr">
+          <div class="card">
+            <div class="card-header">
+              <h2>Telas</h2>
+            </div>
+            <div class="card-body">
+              <div formArrayName="Telas" class="labels">
+                <div *ngFor="let tela of Telas.controls; let i = index;">
+                  <div [formGroupName]="i">
                     <div class="row">
-                        <h4>Tela {{i + 1}}</h4>
+                      <h4 class="subtitles">Tela {{i + 1}}</h4>
                     </div>
                     <div class="row align-items-end">
-                        <div class="form-group col-2">
-                            <label for="{{'codigo' + i}}">
-                                Codigo
-                            </label>
-                            <input class="form-control" aria-label="Codigo" id="{{'codigo' + i}}"
-                                formControlName="codigo" placeholder="Ex. BRPC005" type="text">
-                        </div>
-                        <!-- <label>
-                        Codigo
-                        <input formControlName="codigo" placeholder="Item name">
-                    </label> -->
-                        <div class="form-group col-4">
-                            <label for="{{'titulo' + i}}">
-                                Titulo
-                            </label>
-                            <input class="form-control" aria-label="Titulo" id="{{'titulo' + i}}"
-                                formControlName="titulo" placeholder="Ex. Consulta saque" type="text">
-                        </div>
-                        <!-- <label>
-                            Titulo
-                            <input formControlName="titulo" placeholder="Item description">
-                        </label> -->
-                        <div class="form-group col-4">
-                            <label for="{{'observacao' + i}}">
-                                Observação
-                            </label>
-                            <input class="form-control" aria-label="Observação" id="{{'observacao' + i}}"
-                                formControlName="observacao" placeholder="Ex. Acessivel por BRPC004" type="text">
-                        </div>
-                        <!-- <label>
-                            Observacao
-                            <input formControlName="observacao" placeholder="Item price">
-                        </label> -->
+                      <div class="form-group col-3">
+                        <label for="{{'codigo' + i}}">
+                          Código
+                        </label>
+                        <input class="form-control" aria-label="Codigo" id="{{'codigo' + i}}"
+                          formControlName="codigo" placeholder="Ex. BRPC005" type="text">
+                      </div>
+                      <!-- <label>
+                              Codigo
+                              <input formControlName="codigo" placeholder="Item name">
+                            </label> -->
+                      <div class="form-group col-4">
+                        <label for="{{'titulo' + i}}">
+                          Titulo
+                        </label>
+                        <input class="form-control" aria-label="Titulo" id="{{'titulo' + i}}"
+                          formControlName="titulo" placeholder="Ex. Consulta saque" type="text">
+                      </div>
+                      <!-- <label>
+                              Titulo
+                              <input formControlName="titulo" placeholder="Item description">
+                            </label> -->
+                      <div class="form-group col-4">
+                        <label for="{{'observacao' + i}}">
+                          Observação
+                        </label>
+                        <input class="form-control" aria-label="Observação" id="{{'observacao' + i}}"
+                          formControlName="observacao" placeholder="Ex. Acessivel por BRPC004" type="text">
+                      </div>
+                      <!-- <label>
+                              Observacao
+                              <input formControlName="observacao" placeholder="Item price">
+                            </label> -->
                     </div>
 
                     <div formArrayName="validacoes">
-                        <div *ngFor="let val of tela.get('validacoes').controls; let x = index">
-                            <div class="row align-items-end">
-                                <div class="form-group col-8">
-                                    <label for="{{'validacao' + i}}">
-                                        Validação
-                                    </label>
-                                    <input class="form-control" aria-label="Validação" id="{{'val' + i}}"
-                                        [formControl]='val' placeholder="Ex. Acessivel por BRPC004" type="text">
-                                </div>
-                                <div class="col-2 align-items-end"
-                                    *ngIf="tela.get('validacoes').controls.length == x+1">
-                                    <div>
-                                        <button class="btn btn-light" style="margin-bottom: 1rem"
-                                            (click)="createValidacao(tela.get('validacoes'))" id="botaovalidacao">
-                                            + Validação
-                                        </button>
-                                    </div>
-                                </div>
+                      <div *ngFor="let val of tela.get('validacoes').controls; let x = index">
+                        <div class="row align-items-end">
+                          <div class="form-group col-8">
+                            <label for="{{'validacao' + i}}">
+                              Validação
+                            </label>
+                            <input class="form-control" aria-label="Validação" id="{{'val' + i}}"
+                              [formControl]='val' placeholder="Ex. Acessivel por BRPC004" type="text">
+                          </div>
+                          <div class="col-3 align-items-end"
+                            *ngIf="tela.get('validacoes').controls.length == x+1">
+                            <div>
+                              <button class="btn btn-primary" style="margin-bottom: 1rem"
+                                (click)="createValidacao(tela.get('validacoes'))" id="botaovalidacao">
+                                + validação
+                              </button>
                             </div>
+                          </div>
                         </div>
+                      </div>
                     </div>
-
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
-        <button type="submit" class="btn btn-dark" (click)="onSubmit()">submit</button>
-    </form>
-    <!-- 
-    <button (click)="teste()">teste</button>
-    <button (click)="gett()">get</button>
+          </div>
+        <button type="submit" class="btn btn-secondary" (click)="onSubmit()">Submit</button>
+      </form>
+      <!--
+      <button (click)="teste()">teste</button>
+      <button (click)="gett()">get</button>
 
-    <button (click)="addSigla()">+ sigla</button> -->
-    <div class="row">
-        <div class="form-group col-10">
-            <label for="merge">
-                Merge Request
-            </label>
-            <textarea class="form-control" id="merge">{{result}} </textarea>
+      <button (click)="addSigla()">+ sigla</button> -->
+      <div class="forever-alone">
+        <hr class="hr">
+        <div class="card">
+          <div class="card-header">
+            <h2>Seu Merge Request</h2>
+          </div>
+          <div class="card-body">
+              <div class="form-group col-10">
+                <label for="merge" class="labels">
+                  Merge Request
+                </label>
+                <textarea class="form-control" id="merge">{{result}} </textarea>
+              </div>
+            </div>
+          </div>
         </div>
-</div> 
+      </div>
+    </div>
+<!-- Não insira uma </div> aqui! -->
+</div>
