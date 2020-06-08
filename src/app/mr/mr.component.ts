@@ -24,7 +24,7 @@ export class MRComponent implements OnInit {
 
     this.addSigla();
     this.addMassa();
-    this.addTelaInit();
+    this.addTela();
   }
 
   createMassa(): FormGroup {
@@ -63,7 +63,7 @@ export class MRComponent implements OnInit {
     })
   }
 
-  addTelaInit(): void {
+  addTela(): void {
     let novaTela = this.createTela();
     let validacoes = novaTela.get('validacoes') as FormArray;
     validacoes.push(new FormControl(''));
@@ -75,13 +75,7 @@ export class MRComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.MRService.post(this.MRService.getMergeRequest(this.MergeForm)).subscribe(
-    //   data=>{
-    //     this.result = data;
-    //   });
     this.result = this.MRService.getMergeRequestText(this.MRService.getMergeRequest(this.MergeForm));
-
-    console.log("teste");
   }
 
   get Issue() {
