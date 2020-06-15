@@ -2,6 +2,7 @@ export class MergeRequest {
     issue: number = 0;
     dev: string = '';
     func: string = '';
+    lean: string = '';
     massas: Array<Massa> = new Array<Massa>();
     siglas: Array<Sigla> = new Array<Sigla>();
     telas: Array<Tela> = new Array<Tela>();
