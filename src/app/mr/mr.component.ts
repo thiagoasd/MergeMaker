@@ -18,6 +18,7 @@ export class MRComponent implements OnInit {
     this.MergeForm = new FormGroup({
       Issue: new FormControl(''),
       Dev: new FormControl(''),
+      Func: new FormControl(''),
       Massas: new FormArray([]),
       Siglas: new FormArray([]),
       Telas: new FormArray([])
