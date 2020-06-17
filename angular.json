@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "MergeMaker"
+    }
+  },
+  "defaultProject": "MergeMaker",
+  "cli": {
+    "analytics": "9372243c-20d3-45f1-ab82-5a16419ddb44"
+  }
 }

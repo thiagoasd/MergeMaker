@@ -39,6 +39,13 @@
                             <input class="form-control" formControlName="Func" placeholder="Ex. Consulta Históricos"
                                 type="text">
                         </div>
+                        <div>
+                            <label class="labels">
+                                Informações adicionais
+                            </label>
+                            <input class="form-control" formControlName="Info" placeholder="Ex. Muitos campos"
+                                type="text">
+                        </div>
                     </div>
                 </div>
                 <hr class="hr">
@@ -103,28 +110,28 @@
                                             CPF/CNPJ
                                         </label>
                                         <input class="form-control" aria-label="CPF/CNPJ" id="{{'cpf' + i}}"
-                                            formControlName="cpf" placeholder="Ex. 0138340433" type="number" min="0">
+                                            formControlName="cpf" placeholder="Ex. 0138340433" type="text" min="0" onkeypress="return (event.charCode>=48 && event.charCode<=57)">
                                     </div>
                                     <div class="form-group col-2">
                                         <label for="{{'banco' + i}}">
                                             Banco
                                         </label>
                                         <input class="form-control" aria-label="Banco" id="{{'banco' + i}}"
-                                            formControlName="banco" placeholder="Ex. 0033" type="number" min="0">
+                                            formControlName="banco" placeholder="Ex. 0033" min="0" onkeypress="return (event.charCode>=48 && event.charCode<=57)">
                                     </div>
                                     <div class="form-group col-2">
                                         <label for="{{'agencia' + i}}">
                                             Agência
                                         </label>
                                         <input class="form-control" aria-label="Agencia" id="{{'agencia' + i}}"
-                                            formControlName="agencia" placeholder="Ex. 0001" type="number" min="0">
+                                            formControlName="agencia" placeholder="Ex. 0001" min="0" onkeypress="return (event.charCode>=48 && event.charCode<=57)">
                                     </div>
                                     <div class="form-group col-2">
                                         <label for="{{'conta' + i}}">
                                             Conta
                                         </label>
                                         <input class="form-control" aria-label="Conta" id="{{'conta' + i}}"
-                                            formControlName="conta" placeholder="Ex. 00000000000">
+                                            formControlName="conta" placeholder="Ex. 00000000000" onkeypress="return (event.charCode>=48 && event.charCode<=57)">
                                     </div>
                                     <div class="form-group col-3">
                                         <label for="{{'observacao' + i}}">
@@ -210,7 +217,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row align-items-end">
+                        <div class="row">
                             <div class="form-group">
                                 <button class="btn btn-primary col-12" style="margin-bottom: 1rem" (click)="addTela()"
                                     id="botaovalidacao">

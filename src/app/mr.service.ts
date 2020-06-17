@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Massa, Sigla, Validacoes, Tela, MergeRequest } from './MR.model';
+import { Massa, Sigla, Validacao, Tela, MergeRequest } from './MR.model';
 import { FormGroup, FormArray } from '@angular/forms';
 
 @Injectable({
@@ -73,7 +73,7 @@ export class MRService {
     let Telas = (form.get('Telas') as FormArray);
     Telas.controls.forEach(control => {
       let tela_tmp = new Tela;
-      let validacoes = new Array<Validacoes>();
+      let validacoes = new Array<Validacao>();
       tela_tmp.codigo = control.get('codigo').value;
       tela_tmp.titulo = control.get('titulo').value;
       tela_tmp.observacao = control.get('observacao').value;
@@ -150,7 +150,7 @@ export class MRService {
 
   }
 
-  private getComboBoxes(validacoes: Array<Validacoes>): string {
+  private getComboBoxes(validacoes: Array<Validacao>): string {
     let comboboxes: string = "";
     let count: number = 0;
 

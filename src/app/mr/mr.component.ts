@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormControl } from '@angular/forms';
 import { MRService } from '../mr.service';
+import { DocService } from '../doc.service';
 
 @Component({
   selector: 'app-mr',
@@ -12,7 +13,7 @@ export class MRComponent implements OnInit {
   MergeForm: FormGroup;
   Siglas: FormArray;
   result: string;
-  constructor(private MRService: MRService) { }
+  constructor(private MRService: MRService, private DocService: DocService) { }
 
   ngOnInit(): void {
     this.MergeForm = new FormGroup({
@@ -20,6 +21,7 @@ export class MRComponent implements OnInit {
       Dev: new FormControl(''),
       Lean: new FormControl(''),
       Func: new FormControl(''),
+      Info: new FormControl(''),
       Massas: new FormArray([]),
       Siglas: new FormArray([]),
       Telas: new FormArray([])
@@ -78,7 +80,9 @@ export class MRComponent implements OnInit {
   }
 
   onSubmit() {
-    this.result = this.MRService.getMergeRequestText(this.MRService.getMergeRequest(this.MergeForm));
+    
+    this.DocService.mrToDoc(this.MergeForm);
+    //this.result = this.MRService.getMergeRequestText(this.MRService.getMergeRequest(this.MergeForm));
   }
 
   get Issue() {

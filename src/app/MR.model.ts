@@ -3,6 +3,7 @@ export class MergeRequest {
     dev: string = '';
     func: string = '';
     lean: string = '';
+    info: string = '';
     massas: Array<Massa> = new Array<Massa>();
     siglas: Array<Sigla> = new Array<Sigla>();
     telas: Array<Tela> = new Array<Tela>();
@@ -28,9 +29,9 @@ export class Tela {
     codigo: string;
     titulo: string;
     observacao: string;
-    validacoes: Array<Validacoes> = new Array<Validacoes>();
+    validacoes: Array<Validacao> = new Array<Validacao>();
 }
 
-export class Validacoes {
+export class Validacao {
     validacao: string;
 }
