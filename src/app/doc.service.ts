@@ -266,7 +266,7 @@ export class DocService {
         paragraph = new Paragraph(
           {
             text: validacao.validacao,
-            bullet: { level: 1 }
+            bullet: { level: 0 }
           }
         );
         paragraphsTelas.push(paragraph);
