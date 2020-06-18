@@ -11,40 +11,44 @@
                         <h2>Issue</h2>
                     </div>
                     <div class="card-body">
-                        <div class="col-2">
-                            <label class="labels">
-                                Número
-                            </label>
-                            <input class="form-control" formControlName="Issue" placeholder="Ex. 3" type="number"
-                                min="1">
+                        <div class="row align-items-end">
+                            <div class="form-group col-4">
+                                <label class="labels">
+                                    Número
+                                </label>
+                                <input class="form-control" formControlName="Issue" placeholder="Ex. 3" type="number"
+                                    min="1">
+                            </div>
+                            <div class="form-group col-4">
+                                <label class="labels">
+                                    Lean
+                                </label>
+                                <input class="form-control" formControlName="Lean" placeholder="Ex. cc-cons-man-limites"
+                                    type="text">
+                            </div>
+                            <div class="form-group col-3">
+                                <label class="labels">
+                                    Developer
+                                </label>
+                                <input class="form-control" formControlName="Dev" placeholder="Ex. Thiago Teixeira"
+                                    type="text">
+                            </div>
                         </div>
-                        <div class="form-group col-2">
-                            <label class="labels">
-                                Developer
-                            </label>
-                            <input class="form-control" formControlName="Dev" placeholder="Ex. Thiago Teixeira"
-                                type="text">
-                        </div>
-                        <div class="form-group col-2">
-                            <label class="labels">
-                                Lean
-                            </label>
-                            <input class="form-control" formControlName="Lean" placeholder="Ex. cc-cons-man-limites"
-                                type="text">
-                        </div>
-                        <div class="form-group col-2">
-                            <label class="labels">
-                                Funcionalidade/Titulo
-                            </label>
-                            <input class="form-control" formControlName="Func" placeholder="Ex. Consulta Históricos"
-                                type="text">
-                        </div>
-                        <div>
-                            <label class="labels">
-                                Informações adicionais
-                            </label>
-                            <input class="form-control" formControlName="Info" placeholder="Ex. Muitos campos"
-                                type="text">
+                        <div class="row align-items-end">
+                            <div class="form-group col-4">
+                                <label class="labels">
+                                  Título da funcionalidade
+                                </label>
+                                <input class="form-control" formControlName="Func" placeholder="Ex. Consulta Históricos"
+                                    type="text">
+                            </div>
+                            <div class="form-group col-4">
+                                <label class="labels">
+                                    Informações adicionais
+                                </label>
+                                <input class="form-control" formControlName="Info" placeholder="Ex. Muitos campos"
+                                    type="text">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -84,8 +88,7 @@
                                     <div class="col-2" *ngIf="Siglas.length == i+1">
                                         <div>
                                             <button class="btn btn-primary" style="margin-bottom: 1rem"
-                                                (click)="addSigla()" id="botaosigla + i">+
-                                                sigla</button>
+                                                (click)="addSigla()" id="botaosigla + i">+ sigla</button>
                                         </div>
                                     </div>
                                 </div>
@@ -211,18 +214,16 @@
                                                         </button>
                                                     </div>
                                                 </div>
+                                                <div class="col-2">
+                                                  <div>
+                                                      <button class="btn btn-primary" style="margin-bottom: 1rem" (click)="addTela()"
+                                                          id="botaovalidacao">+ tela</button>
+                                                  </div>
+                                              </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group">
-                                <button class="btn btn-primary col-12" style="margin-bottom: 1rem" (click)="addTela()"
-                                    id="botaovalidacao">
-                                    + Tela MEU DEUS EU ODEIO FRONT END COM TODO MEU CORAÇÃO O BOTÃO N ALINHA NO INICIO
-                                </button>
                             </div>
                         </div>
                     </div>
