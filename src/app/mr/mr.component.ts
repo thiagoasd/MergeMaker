@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormControl } from '@angular/forms';
 import { MRService } from '../mr.service';
 import { DocService } from '../doc.service';
+import { fstat } from 'fs';
 
 @Component({
   selector: 'app-mr',
@@ -80,9 +81,9 @@ export class MRComponent implements OnInit {
   }
 
   onSubmit() {
-    
+
     this.DocService.mrToDoc(this.MergeForm);
-    //this.result = this.MRService.getMergeRequestText(this.MRService.getMergeRequest(this.MergeForm));
+    this.result = this.MRService.getMergeRequestText(this.MRService.getMergeRequest(this.MergeForm));
   }
 
   get Issue() {
