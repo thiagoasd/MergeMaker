@@ -87,11 +87,7 @@
                                     </div>
                                     <div class="col-2" *ngIf="Siglas.length == i+1">
                                         <div>
-<<<<<<< HEAD
                                             <button class="btn btn-main" style="margin-bottom: 1rem"
-=======
-                                            <button class="btn btn-primary" style="margin-bottom: 1rem"
->>>>>>> f8053d7b11807892b24f747e8cb235d2407575e4
                                                 (click)="addSigla()" id="botaosigla + i">+ sigla</button>
                                         </div>
                                     </div>
@@ -160,7 +156,6 @@
                 </div>
                 <hr class="hr">
                 <div class="card">
-<<<<<<< HEAD
                   <div class="card-header">
                     <h2>Telas</h2>
                   </div>
@@ -213,78 +208,9 @@
                                     <button class="btn btn-main" style="margin-bottom: 1rem"
                                       (click)="createValidacao(tela.get('validacoes'))"
                                       id="botaovalidacao">+ validação</button>
-=======
-                    <div class="card-header">
-                        <h2>Telas</h2>
-                    </div>
-                    <div class="card-body">
-                        <div formArrayName="Telas" class="labels">
-                            <div *ngFor="let tela of Telas.controls; let i = index;">
-                                <div [formGroupName]="i">
-                                    <div class="row">
-                                        <h4 class="subtitles">Tela
-                                            {{tela.value.codigo}}{{tela.value.codigo && tela.value.titulo ?': ' + tela.value.titulo : tela.value.titulo }}
-                                        </h4>
-                                    </div>
-                                    <div class="row align-items-end">
-                                        <div class="form-group col-3">
-                                            <label for="{{'codigo' + i}}">
-                                                Código
-                                            </label>
-                                            <input class="form-control" aria-label="Codigo" id="{{'codigo' + i}}"
-                                                formControlName="codigo" placeholder="Ex. BRPC005" type="text">
-                                        </div>
-                                        <div class="form-group col-4">
-                                            <label for="{{'titulo' + i}}">
-                                                Titulo
-                                            </label>
-                                            <input class="form-control" aria-label="Titulo" id="{{'titulo' + i}}"
-                                                formControlName="titulo" placeholder="Ex. Consulta saque" type="text">
-                                        </div>
-                                        <div class="form-group col-4">
-                                            <label for="{{'observacao' + i}}">
-                                                Observação
-                                            </label>
-                                            <input class="form-control" aria-label="Observação"
-                                                id="{{'observacaoTela' + i}}" formControlName="observacao"
-                                                placeholder="Ex. Acessivel por BRPC004" type="text">
-                                        </div>
-                                    </div>
-                                    <div formArrayName="validacoes">
-                                        <div *ngFor="let val of tela.get('validacoes').controls; let x = index">
-                                            <div class="row align-items-end">
-                                                <div class="form-group col-8">
-                                                    <label for="{{'validacao' + x}}">
-                                                        Validação
-                                                    </label>
-                                                    <input class="form-control" aria-label="Validação"
-                                                        id="{{'val' + x}}" [formControl]='val'
-                                                        placeholder="Ex. Acessivel por BRPC004" type="text">
-                                                </div>
-                                                <div class="col-3 align-items-end"
-                                                    *ngIf="tela.get('validacoes').controls.length == x+1">
-                                                    <div>
-                                                        <button class="btn btn-primary" style="margin-bottom: 1rem"
-                                                            (click)="createValidacao(tela.get('validacoes'))"
-                                                            id="botaovalidacao">
-                                                            + validação
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <div class="col-2">
-                                                  <div>
-                                                      <button class="btn btn-primary" style="margin-bottom: 1rem" (click)="addTela()"
-                                                          id="botaovalidacao">+ tela</button>
-                                                  </div>
-                                              </div>
-                                            </div>
-                                        </div>
-                                    </div>
->>>>>>> f8053d7b11807892b24f747e8cb235d2407575e4
                                 </div>
                               </div>
                             </div>
-<<<<<<< HEAD
                           </div>
                           <div class="align-items-end">
                             <div class="col-2">
@@ -296,9 +222,6 @@
                           </div>
                         </div>
                       </div>
-=======
-                        </div>
->>>>>>> f8053d7b11807892b24f747e8cb235d2407575e4
                     </div>
                   </div>
                 </div>
