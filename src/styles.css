@@ -65,10 +65,6 @@ html{
 ==========================================================================
 */
 
- /* .btn{
-  background: var(--preto);
-  color: var(--branco);
-} */
 .btn-main {
   color: var(--branco-s);
   background-color: var(--preto);
