@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { saveAs } from "file-saver";
-import { Document, Packer, Paragraph, TextRun, HeadingLevel, Header, Alignment, AlignmentType, ISectionOptions, PageBreak, Table, TableRow, TableCell, ParagraphStyle } from "docx";
+import { Document, Packer, Paragraph, TextRun, HeadingLevel, Header, Alignment, AlignmentType, ISectionOptions, PageBreak, Table, TableRow, TableCell, ParagraphStyle, Media } from "docx";
 import { Sigla, MergeRequest, Massa, Tela, Validacao } from './MR.model';
 import { FormArray, FormGroup } from '@angular/forms';
-import { table } from 'console';
 
 @Injectable({
   providedIn: 'root'
@@ -266,7 +265,7 @@ export class DocService {
         paragraph = new Paragraph(
           {
             text: validacao.validacao,
-            bullet: { level: 1 }
+            bullet: { level: 0 }
           }
         );
         paragraphsTelas.push(paragraph);
