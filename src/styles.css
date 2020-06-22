@@ -65,30 +65,61 @@ html{
 ==========================================================================
 */
 
-.btn{
+ /* .btn{
   background: var(--preto);
   color: var(--branco);
+} */
+.btn-main {
+  color: var(--branco-s);
+  background-color: var(--preto);
+  border-color: var(--branco-s);
 }
-.btn-primary{
-  border: 0
-}
-.btn-primary:hover{
+
+.btn-main:hover,
+.btn-main:focus,
+.btn-main:active,
+.btn-main.active,
+.open .dropdown-toggle.btn-main {
+  color: var(--branco-s);
   background-color: var(--vermelho);
+  border-color: var(--branco-s);
 }
-.btn-primary:not(:disabled):not(.disabled):active,.btn-primary:not(:disabled):not(.disabled).active,.show>.btn-primary.dropdown-toggle{
-  color:#fff;
-  background-color: var(--vinho);
-  border-color:rgba(0, 0, 0, 0.322);
+
+.btn-main:active,
+.btn-main.active,
+.open .dropdown-toggle.btn-main {
+  background-image: none;
 }
-.btn-primary:not(:disabled):not(.disabled):active:focus,.btn-primary:not(:disabled):not(.disabled).active:focus,.show>.btn-primary.dropdown-toggle:focus{
-  box-shadow:0 0 0 .2rem rgba(0, 0, 0, 0.205);
+
+.btn-main.disabled,
+.btn-main[disabled],
+fieldset[disabled] .btn-main,
+.btn-main.disabled:hover,
+.btn-main[disabled]:hover,
+fieldset[disabled] .btn-main:hover,
+.btn-main.disabled:focus,
+.btn-main[disabled]:focus,
+fieldset[disabled] .btn-main:focus,
+.btn-main.disabled:active,
+.btn-main[disabled]:active,
+fieldset[disabled] .btn-main:active,
+.btn-main.disabled.active,
+.btn-main[disabled].active,
+fieldset[disabled] .btn-main.active {
+  background-color: var(--preto);
+  border-color: var(--branco-s);
+}
+
+.btn-main .badge {
+  color: var(--preto);
+  background-color: var(--branco-s);
 }
 
 .btn-secondary{
-  background-color: var(--preto);
+  background-color: var(--vermelho);
 }
 .btn-secondary:hover{
-  background-color: var(--vermelho);
+  background-color: var(--preto);
 }
 /*
 ==========================================================================
@@ -204,7 +235,7 @@ p {
   top: 0;
   left: 0;
   right: 0;
-  height: 82px;
+  height: 65px;
   display: flex;
   align-items: center;
   background-color: var(--vinho);
