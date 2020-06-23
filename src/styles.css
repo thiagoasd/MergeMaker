@@ -14,6 +14,8 @@ html{
   --branco-s: #FFFFFF;
   --preto: #0D0D0D;
   --vermelho: #F23535;
+  --azul: #29C1CC;
+  --verde: #00FF80;
 }
 
 /*
@@ -111,24 +113,171 @@ fieldset[disabled] .btn-main.active {
   background-color: var(--branco-s);
 }
 
-.btn-secondary{
+.btn-sub {
+  color: #ffffff;
+  background-color: #F23535;
+  border-color: #FFFFFF;
+}
+
+.btn-sub:hover,
+.btn-sub:focus,
+.btn-sub:active,
+.btn-sub.active,
+.open .dropdown-toggle.btn-sub {
+  color: #ffffff;
+  background-color: #0D0D0D;
+  border-color: #FFFFFF;
+}
+
+.btn-sub:active,
+.btn-sub.active,
+.open .dropdown-toggle.btn-sub {
+  background-image: none;
+}
+
+.btn-sub.disabled,
+.btn-sub[disabled],
+fieldset[disabled] .btn-sub,
+.btn-sub.disabled:hover,
+.btn-sub[disabled]:hover,
+fieldset[disabled] .btn-sub:hover,
+.btn-sub.disabled:focus,
+.btn-sub[disabled]:focus,
+fieldset[disabled] .btn-sub:focus,
+.btn-sub.disabled:active,
+.btn-sub[disabled]:active,
+fieldset[disabled] .btn-sub:active,
+.btn-sub.disabled.active,
+.btn-sub[disabled].active,
+fieldset[disabled] .btn-sub.active {
+  background-color: #F23535;
+  border-color: #FFFFFF;
+}
+
+.btn-sub .badge {
+  color: var(--vermelho);
+  background-color: #ffffff;
+}
+
+.btn-copy {
+  color: var(--branco-s);
   background-color: var(--vermelho);
+  border-color: var(--branco-s);
+  margin-top: 15px;
 }
-.btn-secondary:hover{
+
+.btn-copy:hover,
+.btn-copy:focus,
+.btn-copy:active,
+.btn-copy.active,
+.open .dropdown-toggle.btn-copy {
+  color: var(--branco-s);
+  background-color: var(--azul);
+  border-color: var(--branco-s);
+}
+
+
+.btn-copy:active,
+.btn-copy.active,
+.open .dropdown-toggle.btn-copy {
+  background-image: none;
+}
+
+.btn-copy.disabled,
+.btn-copy[disabled],
+fieldset[disabled] .btn-copy,
+.btn-copy.disabled:hover,
+.btn-copy[disabled]:hover,
+fieldset[disabled] .btn-copy:hover,
+.btn-copy.disabled:focus,
+.btn-copy[disabled]:focus,
+fieldset[disabled] .btn-copy:focus,
+.btn-copy.disabled:active,
+.btn-copy[disabled]:active,
+fieldset[disabled] .btn-copy:active,
+.btn-copy.disabled.active,
+.btn-copy[disabled].active,
+fieldset[disabled] .btn-copy.active {
   background-color: var(--preto);
+  border-color: var(--branco-s);
 }
+
+.btn-copy .badge {
+  color: var(--preto);
+  background-color: var(--branco-s);
+}
+
+.btn-confirm {
+  color: var(--branco-s);
+  background-color: var(--preto);
+  border-color: var(--branco-s);
+}
+
+.btn-confirm:hover,
+.btn-confirm:focus,
+.btn-confirm:active,
+.btn-confirm.active,
+.open .dropdown-toggle.btn-confirm {
+  color: var(--branco-s);
+  background-color: var(--verde);
+  border-color: var(--branco-s);
+}
+
+.btn-confirm:active,
+.btn-confirm.active,
+.open .dropdown-toggle.btn-confirm {
+  background-image: none;
+}
+
+.btn-confirm.disabled,
+.btn-confirm[disabled],
+fieldset[disabled] .btn-confirm,
+.btn-confirm.disabled:hover,
+.btn-confirm[disabled]:hover,
+fieldset[disabled] .btn-confirm:hover,
+.btn-confirm.disabled:focus,
+.btn-confirm[disabled]:focus,
+fieldset[disabled] .btn-confirm:focus,
+.btn-confirm.disabled:active,
+.btn-confirm[disabled]:active,
+fieldset[disabled] .btn-confirm:active,
+.btn-confirm.disabled.active,
+.btn-confirm[disabled].active,
+fieldset[disabled] .btn-confirm.active {
+  background-color: var(--preto);
+  border-color: var(--preto);
+}
+
+.btn-confirm .badge {
+  color: var(--preto);
+  background-color: var(--branco-s);
+}
+
+#divalinharbutton{
+  padding-left: 0px;
+}
+
+
 /*
 ==========================================================================
   #TITLE
 ==========================================================================
 */
 
+.titlenav{
+  font-size: 18px;
+  text-transform: uppercase;
+  text-align: left;
+  color: var(--branco-s);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .title {
   font-size: 24px;
   text-transform: uppercase;
   font-weight: 700;
   text-align: center;
-  color: var(--branco);
+  color: var(--branco-s);
 }
 
 .titles{
@@ -237,19 +386,18 @@ p {
   background-color: var(--vinho);
   color: white;
   font-weight: 600;
-
 }
 
 .toolbar img {
-  margin: 0 16px;
+  align-items: center;
+  margin: 0 2px;
 }
 
-.toolbar #twitter-logo {
-  height: 40px;
-  margin: 0 16px;
+.toolbar #slogo {
+  margin: 0 2px;
 }
 
-.toolbar #twitter-logo:hover {
+.toolbar #slogo:hover {
   opacity: 0.8;
 }
 
@@ -282,22 +430,6 @@ svg.material-icons:not(:last-child) {
   margin-top: 16px;
 }
 
-/*.card {
-  border-radius: 4px;
-  border: 1px solid #eee;
-  background-color: #fafafa;
-  height: 40px;
-  width: 200px;
-  margin: 0 8px 16px;
-  padding: 16px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.2s ease-in-out;
-  line-height: 24px;
-}
-*/
 .card-container .card:not(:last-child) {
   margin-right: 0;
 }

@@ -199,16 +199,16 @@
                         </div>
                         <div class="col-3 align-items-end" *ngIf="tela.get('validacoes').controls.length == x+1">
                           <div>
-                            <button class="btn btn-main" style="margin-bottom: 1rem"
+                            <button class="btn btn-sub" style="margin-bottom: 1rem"
                               (click)="createValidacao(tela.get('validacoes'))" id="botaovalidacao">+ validação</button>
                           </div>
                         </div>
-                        <div class="col-3">
-                          <div>
-                            <button class="btn btn-main" (click)="addTela()"
-                              id="botaoadicionartela">+ tela</button>
-                          </div>
-                        </div>
+                      </div>
+                    </div>
+                    <div class="col-3" id="divalinharbutton">
+                      <div>
+                        <button class="btn btn-main" (click)="addTela()"
+                          id="botaoadicionartela">+ tela</button>
                       </div>
                     </div>
                   </div>
@@ -217,7 +217,7 @@
             </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-secondary" (click)="onSubmit()">Submit</button>
+        <button type="submit" class="btn btn-confirm" (click)="onSubmit()">Submit</button>
       </form>
       <div class="forever-alone">
         <hr class="hr">
@@ -230,8 +230,8 @@
               <label for="merge" class="labels">
                 Merge Request
               </label>
-              <textarea class="form-control" id="merge">{{result}} </textarea>
-            </div>
+              <textarea class="form-control" id="merge" #copytextinput>{{result}}</textarea>
+              <button class="btn btn-copy" (click)="copyInputMessage(copytextinput)" value="clique para copiar">copiar</button>
           </div>
         </div>
 

@@ -80,6 +80,12 @@ export class MRComponent implements OnInit {
     indice.push(new FormControl(''));
   }
 
+  copyInputMessage(inputElement){
+    inputElement.select();
+    document.execCommand('copy');
+    inputElement.setSelectionRange(0, 0);
+  }
+
   onSubmit() {
 
     this.DocService.mrToDoc(this.MergeForm);
