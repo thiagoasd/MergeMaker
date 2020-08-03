@@ -24,11 +24,12 @@ jobs:
       run: |
         npm install
         npm run build --if-present
+        npm run test --if-present
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v1
       with:
         app-name: 'mergemaker'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_ca1e9d4811da472693e3f75168c9234c }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_165811786f734d5ab731146216296fce }}
         package: .
