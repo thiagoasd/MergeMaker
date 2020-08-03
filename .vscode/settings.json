@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/87cf9644-6fd4-467e-b803-0c4ba9999a35/resourceGroups/MergeMaker/providers/Microsoft.Web/sites/MergeMaker",
+    "appService.deploySubpath": "."
+}
