@@ -89,11 +89,8 @@ export class MRService {
 
     Massas.controls.forEach(control => {
       let massa_tmp = new Massa;
-      massa_tmp.cpf = control.get('cpf').value;
-      massa_tmp.banco = control.get('banco').value;
-      massa_tmp.agencia = control.get('agencia').value;
-      massa_tmp.conta = control.get('conta').value;
-      massa_tmp.observacao = control.get('observacao').value;
+      massa_tmp.titulo = control.get('titulo').value;
+      massa_tmp.valor = control.get('valor').value;
       MR.massas.push(massa_tmp);
     });
 
@@ -117,7 +114,7 @@ export class MRService {
 
       let validacoes_tmp = control.get('validacoes') as FormArray;
       validacoes_tmp.controls.forEach(valControl => {
-        validacoes.push(valControl.value);
+        validacoes.push(<Validacao>{validacao: valControl.value});
       });
       tela_tmp.validacoes = validacoes;
       MR.telas.push(tela_tmp);
@@ -142,48 +139,42 @@ export class MRService {
     return tmp;
   }
 
-  private getMassa(massa: Massa): string {
+  // private getMassa(massa: Massa): string {
 
 
-    let tmp: string = "";
+  //   let tmp: string = "";
 
-    if (massa.cpf) {
-      tmp += "CPF " + massa.cpf + " ";
-    }
+  //   massa.forEach(element => {
+      
+  //   });
 
-    if (massa.banco) {
-      tmp += "Banco " + massa.banco + " ";
-    }
+  //   return tmp;
 
-    if (massa.agencia) {
-      tmp += "Agencia " + massa.agencia + " ";
-    }
-
-    if (massa.conta) {
-      tmp += "Conta " + massa.conta + " ";
-    }
-
-    if (massa.observacao) {
-      tmp += "Obs: " + massa.observacao + "\n";
-    }
-
-    return tmp;
-
-  }
+  // }
 
   private getMassaTable(massas: Massa[]) {
 
-    let tmp: string = "";
-
-    tmp = "| CPF | Banco | Agência | Conta | Observação |\n";
-    tmp += "|:---:|:-----:|:------:|:-----:|:----------:|\n";
+    let tmp: string = "| ";
 
     massas.forEach(massa => {
-      tmp += "|" + massa.cpf + "|" + massa.banco + "|" + massa.agencia + "|" + massa.conta + "|" + massa.observacao + "|\n";
+      tmp += massa.titulo + " |";
     });
 
-    return tmp + '\n';
+    tmp += "\n|"
 
+    massas.forEach(massa => {
+      tmp += ":---:|";
+    })
+    
+     tmp += "\n|";
+
+    massas.forEach(massa => {
+      tmp += massa.valor + " | ";
+    })
+
+    tmp += '\n';
+
+    return tmp;
   }
 
   private getSigla(sigla: Sigla): string {
@@ -227,7 +218,7 @@ export class MRService {
   private getTelaText(tela: Tela): string {
 
     let res: string = "";
-    let headline: string = '[ ] ' + tela.codigo + ": " + tela.titulo + "\n";
+    let headline: string = '* [ ] ' + tela.codigo + ": " + tela.titulo + "\n";
 
     if (tela.observacao) {
       headline += tela.observacao + "\n";

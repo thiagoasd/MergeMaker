@@ -104,45 +104,23 @@
                 </div>
                 <div class="row align-items-end">
                   <div class="form-group col-3">
-                    <label for="{{'cpf' + i}}">
-                      CPF/CNPJ
+                    <label for="{{'titulo' + i}}">
+                      Titulo
                     </label>
-                    <input class="form-control" aria-label="CPF/CNPJ" id="{{'cpf' + i}}" formControlName="cpf"
-                      placeholder="Ex. 0138340433" type="text" min="0"
-                      onkeypress="return (event.charCode>=48 && event.charCode<=57)">
-                  </div>
-                  <div class="form-group col-2">
-                    <label for="{{'banco' + i}}">
-                      Banco
-                    </label>
-                    <input class="form-control" aria-label="Banco" id="{{'banco' + i}}" formControlName="banco"
-                      placeholder="Ex. 0033" min="0" onkeypress="return (event.charCode>=48 && event.charCode<=57)">
-                  </div>
-                  <div class="form-group col-2">
-                    <label for="{{'agencia' + i}}">
-                      Agência
-                    </label>
-                    <input class="form-control" aria-label="Agencia" id="{{'agencia' + i}}" formControlName="agencia"
-                      placeholder="Ex. 0001" min="0" onkeypress="return (event.charCode>=48 && event.charCode<=57)">
-                  </div>
-                  <div class="form-group col-2">
-                    <label for="{{'conta' + i}}">
-                      Conta
-                    </label>
-                    <input class="form-control" aria-label="Conta" id="{{'conta' + i}}" formControlName="conta"
-                      placeholder="Ex. 00000000000" onkeypress="return (event.charCode>=48 && event.charCode<=57)">
+                    <input class="form-control" aria-label="Titulo" id="{{'titulo' + i}}" formControlName="titulo"
+                      placeholder="Ex. CPF" type="text" min="0">
                   </div>
                   <div class="form-group col-3">
-                    <label for="{{'observacao' + i}}">
-                      Observação
+                    <label for="{{'valor' + i}}">
+                      Valor
                     </label>
-                    <input class="form-control" aria-label="Observação" id="{{'observacao' + i}}"
-                      formControlName="observacao" placeholder="Ex. Possui Saldo">
+                    <input class="form-control" aria-label="Valor" id="{{'valor' + i}}" formControlName="valor"
+                      placeholder="Ex. 013.834.404-33" min="0"
+                      onkeypress="return (event.charCode>=48 && event.charCode<=57)">
                   </div>
-                  <div class="col-2" *ngIf="Massas.length == i+1">
+                  <div class="col-3" *ngIf="Massas.length == i+1">
                     <div>
-                      <button class="btn btn-main" (click)="addMassa()"
-                        id="botaomassa + i">+ massa</button>
+                      <button class="btn btn-main" (click)="addMassa()" id="botaomassa + i">+ massa</button>
                     </div>
                   </div>
                 </div>
@@ -205,11 +183,10 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-3" id="divalinharbutton">
-                      <div>
-                        <button class="btn btn-main" (click)="addTela()"
-                          id="botaoadicionartela">+ tela</button>
-                      </div>
+                  </div>
+                  <div class="col-3" id="divalinharbutton">
+                    <div>
+                      <button class="btn btn-main" (click)="addTela()" id="botaoadicionartela">+ tela</button>
                     </div>
                   </div>
                 </div>
@@ -231,11 +208,12 @@
                 Merge Request
               </label>
               <textarea class="form-control" id="merge" #copytextinput>{{result}}</textarea>
-              <button class="btn btn-copy" (click)="copyInputMessage(copytextinput)" value="clique para copiar">copiar</button>
+              <button class="btn btn-copy" (click)="copyInputMessage(copytextinput)"
+                value="clique para copiar">copiar</button>
+            </div>
           </div>
-        </div>
 
-        <!-- Não insira uma </div> aqui! -->
+          <!-- Não insira uma </div> aqui! -->
+        </div>
       </div>
     </div>
-  </div>

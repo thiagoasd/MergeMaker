@@ -35,11 +35,8 @@ export class MRComponent implements OnInit {
 
   createMassa(): FormGroup {
     return new FormGroup({
-      cpf: new FormControl(''),
-      banco: new FormControl(''),
-      agencia: new FormControl(''),
-      conta: new FormControl(''),
-      observacao: new FormControl('')
+      titulo: new FormControl(''),
+      valor: new FormControl(''),
     })
   }
 

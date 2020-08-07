@@ -10,11 +10,8 @@ export class MergeRequest {
 }
 
 export class Massa {
-    cpf: string;
-    banco: string;
-    agencia: string;
-    conta: string;
-    observacao: string;
+    titulo: string;
+    valor: string
 }
 
 

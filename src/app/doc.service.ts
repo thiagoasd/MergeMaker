@@ -24,11 +24,8 @@ export class DocService {
 
     Massas.controls.forEach(control => {
       let massa_tmp = new Massa;
-      massa_tmp.cpf = control.get('cpf').value;
-      massa_tmp.banco = control.get('banco').value;
-      massa_tmp.agencia = control.get('agencia').value;
-      massa_tmp.conta = control.get('conta').value;
-      massa_tmp.observacao = control.get('observacao').value;
+      massa_tmp.titulo = control.get('titulo').value;
+      massa_tmp.valor = control.get('valor').value;
       MR.massas.push(massa_tmp);
     });
 
@@ -90,32 +87,32 @@ export class DocService {
 
   }
 
-  public getMassaText(massa: Massa): string {
+  // private getMassaText(massa: Massa): string {
 
-    let tmp: string = "";
+  //   let tmp: string = "";
 
-    if (massa.cpf) {
-      tmp += "CPF: " + massa.cpf + " ";
-    }
+  //   if (massa.cpf) {
+  //     tmp += "CPF: " + massa.cpf + " ";
+  //   }
 
-    if (massa.banco) {
-      tmp += "Banco: " + massa.banco + " ";
-    }
+  //   if (massa.banco) {
+  //     tmp += "Banco: " + massa.banco + " ";
+  //   }
 
-    if (massa.agencia) {
-      tmp += "Agencia: " + massa.agencia + " ";
-    }
+  //   if (massa.agencia) {
+  //     tmp += "Agencia: " + massa.agencia + " ";
+  //   }
 
-    if (massa.conta) {
-      tmp += "Conta: " + massa.conta;
-    }
+  //   if (massa.conta) {
+  //     tmp += "Conta: " + massa.conta;
+  //   }
 
-    if (massa.observacao) {
-      tmp += "Obs: " + massa.observacao + "\n";
-    }
+  //   if (massa.observacao) {
+  //     tmp += "Obs: " + massa.observacao + "\n";
+  //   }
 
-    return tmp;
-  }
+  //   return tmp;
+  // }
 
   public addTitulo(func: string, issue: number, lean: string) {
 
@@ -202,24 +199,17 @@ export class DocService {
 
     const margens = { top: 100, bottom: 100, left: 200, right: 200 }
     let header: TableRow = new TableRow({ children: [], tableHeader: true });
-    header.addChildElement(new TableCell({ children: [new Paragraph({ children: [new TextRun({ text: 'CPF', bold: true })], alignment: AlignmentType.CENTER })], margins: margens }))
-    header.addChildElement(new TableCell({ children: [new Paragraph({ children: [new TextRun({ text: 'Banco', bold: true })], alignment: AlignmentType.CENTER })], margins: margens }))
-    header.addChildElement(new TableCell({ children: [new Paragraph({ children: [new TextRun({ text: 'Agência', bold: true })], alignment: AlignmentType.CENTER })], margins: margens }))
-    header.addChildElement(new TableCell({ children: [new Paragraph({ children: [new TextRun({ text: 'Conta', bold: true })], alignment: AlignmentType.CENTER })], margins: margens }))
-    header.addChildElement(new TableCell({ children: [new Paragraph({ children: [new TextRun({ text: 'Observação', bold: true })], alignment: AlignmentType.CENTER })], margins: margens }))
+    
+    massas.forEach(massa => {
+      header.addChildElement(new TableCell({ children: [new Paragraph({ children: [new TextRun({ text: massa.titulo, bold: true })], alignment: AlignmentType.CENTER })], margins: margens }))
+    });
     rows.push(header);
 
-
+    let row: TableRow = new TableRow({ children: [] });
     massas.forEach(massa => {
-      let row: TableRow = new TableRow({ children: [] });
-      row.addChildElement(new TableCell({ children: [new Paragraph({ text: massa.cpf, alignment: AlignmentType.CENTER })], margins: margens }))
-      row.addChildElement(new TableCell({ children: [new Paragraph({ text: massa.banco, alignment: AlignmentType.CENTER })], margins: margens }))
-      row.addChildElement(new TableCell({ children: [new Paragraph({ text: massa.agencia, alignment: AlignmentType.CENTER })], margins: margens }))
-      row.addChildElement(new TableCell({ children: [new Paragraph({ text: massa.conta, alignment: AlignmentType.CENTER })], margins: margens }))
-      row.addChildElement(new TableCell({ children: [new Paragraph({ text: massa.observacao, alignment: AlignmentType.CENTER })], margins: margens }))
-      rows.push(row);
+      row.addChildElement(new TableCell({ children: [new Paragraph({ text: massa.valor, alignment: AlignmentType.CENTER })], margins: margens }))
     });
-
+    rows.push(row);
 
     this.paragraphs.push(new Table({ rows: rows }));
     this.paragraphs.push(new Paragraph({ children: [new TextRun('').break()] }));
